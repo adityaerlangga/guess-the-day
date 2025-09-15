@@ -85,7 +85,7 @@ export function Summary({
                     </div>
                     <div className="text-sm text-gray-600">
                       Jawaban: {item.isCorrect ? '✅ Benar' : '❌ Salah'} 
-                      {` (${item.explanation.finalDay})`}
+                      {` (${item.explanation.finalDay}), Anda memilih ${item.selectedDayIndex}`}
                     </div>
                   </div>
                 </div>

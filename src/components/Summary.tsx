@@ -84,8 +84,8 @@ export function Summary({
                       {formatDateIndonesian(item.date)}
                     </div>
                     <div className="text-sm text-gray-600">
-                      Jawaban: {item.isCorrect ? '✅ Benar' : '❌ Salah'} 
-                      {` (${item.explanation.finalDay}), Anda memilih ${DAYS[item.selectedDayIndex]}`}
+                      Jawaban benar: {item.isCorrect ? '✅ Benar' : '❌ Salah'} {` (${item.explanation.finalDay}) `}
+                      Jawaban Anda: {DAYS[item.selectedDayIndex]}
                     </div>
                   </div>
                 </div>

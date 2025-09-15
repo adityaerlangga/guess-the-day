@@ -79,4 +79,4 @@ The Doomsday Technique is a method to calculate the day of the week for any date
 
 ## License
 
-© 2024 Aditya Erlangga Wibowo
+© 2025 Aditya Erlangga Wibowo

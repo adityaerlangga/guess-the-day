@@ -12,7 +12,7 @@ export function Header({ phase, questionIndex }: HeaderProps) {
   return (
     <header className="text-center mb-8">
       <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-2">
-        Guess The Day
+        Guess The Day Game
       </h1>
       <p className="text-lg text-gray-600 mb-6">
         Tebak hari dari tanggal yang diberikan menggunakan Doomsday Technique

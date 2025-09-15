@@ -2,7 +2,7 @@ export type GamePhase = 'idle' | 'question' | 'answered' | 'summary';
 
 export type DayIndex = 0 | 1 | 2 | 3 | 4 | 5 | 6; // 0=Senin, 6=Minggu
 
-export const TOTAL_QUESTIONS = 5;
+export const TOTAL_QUESTIONS = 3;
 
 export interface Explanation {
   anchorCentury: string;

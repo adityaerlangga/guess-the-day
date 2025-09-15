@@ -1,14 +1,16 @@
 import type { GamePhase } from '../state/types';
+import { TOTAL_QUESTIONS } from '../state/types';
 
 interface ControlsProps {
   phase: GamePhase;
   selectedDayIndex: number | null;
+  questionIndex: number;
   onStart: () => void;
   onConfirm: () => void;
   onNext: () => void;
 }
 
-export function Controls({ phase, selectedDayIndex, onStart, onConfirm, onNext }: ControlsProps) {
+export function Controls({ phase, selectedDayIndex, questionIndex, onStart, onConfirm, onNext }: ControlsProps) {
   if (phase === 'idle') {
     return (
       <button
@@ -33,12 +35,15 @@ export function Controls({ phase, selectedDayIndex, onStart, onConfirm, onNext }
   }
 
   if (phase === 'answered') {
+    const isLastQuestion = questionIndex >= TOTAL_QUESTIONS - 1;
+    const buttonText = isLastQuestion ? 'Lihat hasil dan ringkasan' : 'Next';
+    
     return (
       <button
         onClick={onNext}
         className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 text-lg cursor-pointer"
       >
-        {phase === 'answered' && selectedDayIndex !== null ? 'Next' : 'Mulai'}
+        {buttonText}
       </button>
     );
   }

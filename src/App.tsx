@@ -52,6 +52,7 @@ function App() {
           <Controls
             phase={gameState.phase}
             selectedDayIndex={gameState.selectedDayIndex}
+            questionIndex={gameState.questionIndex}
             onStart={actions.startGame}
             onConfirm={actions.confirmAnswer}
             onNext={actions.nextQuestion}

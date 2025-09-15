@@ -1,5 +1,5 @@
 import type { QuestionHistory } from '../state/types';
-import { TOTAL_QUESTIONS } from '../state/types';
+import { TOTAL_QUESTIONS, DAYS } from '../state/types';
 import { formatDateIndonesian } from '../lib/dateFormat';
 import { ExplanationCard } from './ExplanationCard';
 
@@ -85,7 +85,7 @@ export function Summary({
                     </div>
                     <div className="text-sm text-gray-600">
                       Jawaban: {item.isCorrect ? '✅ Benar' : '❌ Salah'} 
-                      {` (${item.explanation.finalDay}), Anda memilih ${item.selectedDayIndex}`}
+                      {` (${item.explanation.finalDay}), Anda memilih ${DAYS[item.selectedDayIndex]}`}
                     </div>
                   </div>
                 </div>

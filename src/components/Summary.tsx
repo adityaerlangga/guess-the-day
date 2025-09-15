@@ -85,7 +85,7 @@ export function Summary({
                     </div>
                     <div className="text-sm text-gray-600">
                       Jawaban: {item.isCorrect ? '✅ Benar' : '❌ Salah'} 
-                      {!isCorrect && ` (${item.explanation.finalDay})`}
+                      {` (${item.explanation.finalDay})`}
                     </div>
                   </div>
                 </div>

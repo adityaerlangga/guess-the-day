@@ -13,9 +13,18 @@ function getDayProgression(startDay: string, steps: number): string {
   
   progression.push(days[currentIndex]);
   
-  for (let i = 1; i <= steps; i++) {
-    currentIndex = (currentIndex + 1) % 7;
-    progression.push(`${days[currentIndex]} (+${i})`);
+  if (steps > 0) {
+    // Forward progression
+    for (let i = 1; i <= steps; i++) {
+      currentIndex = (currentIndex + 1) % 7;
+      progression.push(`${days[currentIndex]} (+${i})`);
+    }
+  } else if (steps < 0) {
+    // Backward progression
+    for (let i = 1; i <= Math.abs(steps); i++) {
+      currentIndex = (currentIndex - 1 + 7) % 7;
+      progression.push(`${days[currentIndex]} (${steps < 0 ? steps + i - 1 : '+' + i})`);
+    }
   }
   
   return progression.join(' → ');
@@ -107,7 +116,7 @@ export function ExplanationCard({ explanation, isOpen, onToggle }: ExplanationCa
                   <p>• Selisih: {explanation.targetDate} - {explanation.monthAnchorDate} = <strong>{explanation.targetDate - explanation.monthAnchorDate}</strong></p>
                   <p>• Sisa pembagian: {explanation.targetDate - explanation.monthAnchorDate} mod 7 = <strong>{explanation.offset}</strong></p>
                   <p>
-                    • Mulai dari doomsday tahun <strong>{explanation.doomsdayYearDay}</strong>, tambah {explanation.offset} hari:
+                    • Mulai dari doomsday tahun <strong>{explanation.doomsdayYearDay}</strong>, {explanation.offset >= 0 ? `tambah ${explanation.offset} hari` : `kurang ${Math.abs(explanation.offset)} hari`}:
                   </p>
                   <p className="ml-4 text-purple-700 font-medium">
                     {getDayProgression(explanation.doomsdayYearDay, explanation.offset)}
